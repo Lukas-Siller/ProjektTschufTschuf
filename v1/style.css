@@ -11,9 +11,13 @@
 }
 #divStart{
     padding: 5px;
+    width: auto;
+    float: left;
 }
 #divStop{
     padding: 5px;
+    width: auto;
+    float: left;
 }
 #btnWechseln{
     background-image: url("images/pfeil.png");
