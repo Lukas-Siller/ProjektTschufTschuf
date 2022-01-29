@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:h="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,32 @@
                 <h3 class="titleStartStop">Start</h3>
                 <div id="divStart" class="container pt-1 border">
                     <input id="inputVon" type="text" placeholder="Von">
-                    <input class="inputVonDate" type="datetime-local" placeholder="">
+                    <!--
+                    <script>
+                        function func_date_time() {
+                            let dt = new Date();
+                            let hour = dt.getHours();
+                            let hourString = hour.toString();
+                            let min = dt.getMinutes();
+                            console.log(hourString.length);
+                            let time = "";
+                            if(hourString.length === 1){
+                                time = "0" + hour + ":" + min;
+                            }
+                            else{
+                                time = hour + ":" + min;
+                            }
+                            let ye = new Intl.DateTimeFormat('de', {year: 'numeric'}).format(dt);
+                            let mo = new Intl.DateTimeFormat('de', {month: '2-digit'}).format(dt);
+                            let da = new Intl.DateTimeFormat('de', {day: '2-digit'}).format(dt);
+                            let date_time = `${ye}-${mo}-${da}T${time}`;
+                            console.log("Current Time:" + date_time);
+                            document.getElementById("inDATE").value = date_time;
+                        }
+                    </script>
+                    -->
+                    <input id="inDATE" class="inputVonDate" type="datetime-local" <!--onclick="func_date_time()"-->>
+
                     <button class="btn-primary" id="btnVon">Ok</button>
                 </div>
             </div>
@@ -31,6 +56,14 @@
                     <input class="inputVonDate" type="datetime-local" value="">
                     <button id="btnBis" class="btn-primary">Ok</button>
                 </div>
+            </div>
+            <div class="container pt-3">
+                <form> <!-- Checkboxen noch hidden machen plus on click die opacity verändern -> (checkbox angecklickt opacity = 1 sonst 0 oder 0.5) -->
+                    <input id="checkBus" type="checkbox" value="Bus"><!--hidden onclick="document.getElementById('checkBusIMG').style.opacity = 0.5"-->
+                    <label for="checkBus"><img id="checkBusIMG" src="images/busBlue.png"></label>
+                    <input id="checkZug" type="checkbox" value="Zug">
+                    <label for="checkZug"><img id="checkZugIMG" src="images/trainRed.png"></label>
+                </form>
             </div>
         </div>
     </div>
