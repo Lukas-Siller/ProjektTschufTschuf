@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: whitesmoke">
     <div class="container mt-5">
-        <h1 id="titleBig"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf</h1>
+        <h1 id="titleBig" class="display-4"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf</h1>
         <div class="row">
             <div class="container pt-2">
                 <h3 class="titleStartStop">Start</h3>
@@ -42,11 +42,24 @@
                     <label for="checkZug"><img id="checkZugIMG" style="opacity: 0.3" src="images/trainRed.png"></label>
                 </form>
             </div>
+            <br><br><br>
+            <div>
+                <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte()">
+                    <h2>Ausgabe ↓</h2>
+                </a>
+                <div style="background-color: whitesmoke" id="collapseOne" class="collapse">
+                    <div id="ausgabeBox" class="container pt-1 border">
+                        <form>
+                            <label id="zugOderBus"></label> - <label id="zeitStart"></label> - <label id="zeitStop"></label>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 <footer id="footer">
     <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
-    <p>Copyright &copy;2022 TschufTschuf - <a href="#" title="Impressum">Impressum</a></p>
+    <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
 </footer>
 </html>

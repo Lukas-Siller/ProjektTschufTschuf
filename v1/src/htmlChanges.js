@@ -42,3 +42,21 @@ function changeValues () {
     document.getElementById("inputBis").value = textInputVon;
     document.getElementById("inputVon").value = textInputBis;
 }
+
+function ausgabeWerte() {
+    if (document.getElementById("checkBusIMG").style.opacity === '1' && document.getElementById("checkZugIMG").style.opacity === '1'){
+        document.getElementById("zugOderBus").innerText = "Zug & Bus";
+    }
+    else if(document.getElementById("checkZugIMG").style.opacity === '1'){
+        document.getElementById("zugOderBus").innerText = "Zug";
+    }
+    else if (document.getElementById("checkBusIMG").style.opacity === '1'){
+        document.getElementById("zugOderBus").innerText = "Bus";
+    }
+    else{
+        document.getElementById("zugOderBus").innerText = "";
+    }
+
+    document.getElementById("zeitStart").innerText = document.getElementById("inputDateVon").value;
+    document.getElementById("zeitStop").innerText = document.getElementById("inputDateBis").value;
+}

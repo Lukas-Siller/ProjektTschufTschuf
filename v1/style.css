@@ -46,3 +46,8 @@
     width: 30px;
     height: 30px;
 }
+#ausgabeBox{
+    padding: 5px;
+    width: auto;
+    float: left;
+}
