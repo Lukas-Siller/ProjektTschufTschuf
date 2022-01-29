@@ -1,8 +1,32 @@
 #titleBig{
-    font-family: Arial;
+    font-family: Arial, serif;
     text-align: center;
+}
+.titleStartStop{
+    font-family: Arial, serif;
 }
 #iconPic{
     width: 25px;
     height: 25px;
+}
+#divStart{
+    padding: 5px;
+}
+#divStop{
+    padding: 5px;
+}
+#btnWechseln{
+    background-image: url("images/pfeil.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: DarkSalmon;
+    color: white;
 }
