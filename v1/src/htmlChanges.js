@@ -19,9 +19,16 @@ function func_date_time(idString) {
     let ye = new Intl.DateTimeFormat('de', {year: 'numeric'}).format(dt);
     let mo = new Intl.DateTimeFormat('de', {month: '2-digit'}).format(dt);
     let da = new Intl.DateTimeFormat('de', {day: '2-digit'}).format(dt);
-    let date_time = `${ye}-${mo}-${da}T${time}`;
+    let date_time = `${ye}-${mo}-${da}T${time}`; //current Time/Date
     console.log("Current Time:" + date_time);
-    document.getElementById(idString).value = date_time;
+
+    document.getElementById('inputDateVon').min = date_time;
+    if(document.getElementById('inputDateVon').value !== ""){
+        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
+    }
+    else{
+        document.getElementById('inputDateBis').min = date_time;
+    }
 }
 
 function opacity_change(idString){
@@ -59,4 +66,14 @@ function ausgabeWerte() {
 
     document.getElementById("zeitStart").innerText = document.getElementById("inputDateVon").value;
     document.getElementById("zeitStop").innerText = document.getElementById("inputDateBis").value;
+}
+
+function changeValueOfDate(){
+    if(document.getElementById('inputDateBis').value <= document.getElementById('inputDateVon').value){
+        document.getElementById('inputDateBis').value = document.getElementById('inputDateVon').value;
+        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
+    }
+    else{
+        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
+    }
 }
