@@ -27,12 +27,12 @@
 }
 #footer{
     position: fixed;
+    padding: 10px 10px 0px 10px;
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 5px;
+    height: auto;
     background-color: DarkSalmon;
-    color: white;
 }
 #checkBusIMG{
     background-image: url("images/busBlue.png");
@@ -51,8 +51,36 @@
     width: auto;
     float: left;
 }
+
+#optionenText{
+    padding: 5px;
+    margin: 5px;
+    width: 50%;
+    float: right;
+}
 #ausgabeBoxOptionen{
     padding: 5px;
+    width: 50%;
+    float: right;
+}
+collapseOptionen{
+    padding: 5px;
+    width: 50%;
+    right: 0;
+    position: absolute;
+}
+#divStartContainer{
+    display: block;
+    width: auto;
+    float: left;
+}
+#divChangeContainer{
+    display: block;
+    width: auto;
+    float: left;
+}
+#divStopContainer{
+    display: block;
     width: auto;
     float: left;
 }

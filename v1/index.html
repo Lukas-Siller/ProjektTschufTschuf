@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <h1 id="titleBig" class="display-4"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf</h1>
         <div class="row">
-            <div class="container pt-2">
+            <div id="divStartContainer" class="container pt-2">
                 <h3 class="titleStartStop">Start</h3>
                 <div id="divStart" class="container pt-1 border">
                     <input id="inputVon" type="text" placeholder="Von">
@@ -23,15 +23,27 @@
                     <button class="btn-primary" id="btnVon">Ok</button>
                 </div>
             </div>
-            <div class="container pt-2">
+            <div id="divChangeContainer" class="container pt-2">
                 <button id="btnWechseln" class="btn" type="button" onclick="changeValues()"></button>
             </div>
-            <div class="container pt-2">
+            <div id="divStopContainer" class="container pt-2">
                 <h3 class="titleStartStop">Stop</h3>
                 <div id="divStop" class="container pt-1 border">
                     <input id="inputBis" type="text" placeholder="Bis"> <!-- onkeydown="if (event.keyCode == 13)document.getElementById('btnBis').click()" -->
                     <input id="inputDateBis" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateBis')">
                     <button id="btnBis" class="btn-primary">Ok</button>
+                </div>
+            </div>
+            <div>
+                <a id="optionenText" class="btn" data-bs-toggle="collapse" href="#collapseOptionen" onclick="ausgabeWerte()">
+                    <h2>Optionen ↓</h2>
+                </a>
+                <div style="background-color: whitesmoke" id="collapseOptionen" class="collapse">
+                    <div id="ausgabeBoxOptionen" class="container pt-1 border">
+                        <form>
+                            <label>Optionen</label>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="container pt-3">
@@ -43,18 +55,6 @@
                 </form>
             </div>
             <br><br><br>
-            <div>
-                <a class="btn" data-bs-toggle="collapse" href="#collapseOptionen" onclick="ausgabeWerte()">
-                    <h2>Optionen ↓</h2>
-                </a>
-                <div style="background-color: whitesmoke" id="collapseOptionen" class="collapse">
-                    <div id="ausgabeBoxOptionen" class="container pt-1 border">
-                        <form>
-                            <label>Optionen</label>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <div>
                 <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte()">
                     <h2>Ausgabe ↓</h2>
@@ -69,9 +69,17 @@
             </div>
         </div>
     </div>
+    <div id="footer">
+        <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
+        <p><cite>No matter where you are you will always catch the right bus.</cite></p>
+        <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
+    </div>
+    <!--
+    <footer id="footer" class="card-footer">
+        <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
+        <p><cite>No matter where you are you will always catch the right bus.</cite></p>
+        <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
+    </footer>
+    -->
 </body>
-<footer id="footer">
-    <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
-    <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
-</footer>
 </html>
