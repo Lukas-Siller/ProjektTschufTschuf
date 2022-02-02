@@ -23,12 +23,6 @@ function func_date_time(idString) {
     console.log("Current Time:" + date_time);
 
     document.getElementById('inputDateVon').min = date_time;
-    if(document.getElementById('inputDateVon').value !== ""){
-        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
-    }
-    else{
-        document.getElementById('inputDateBis').min = date_time;
-    }
 }
 
 function opacity_change(idString){
@@ -75,5 +69,20 @@ function changeValueOfDate(){
     }
     else{
         document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
+    }
+}
+
+function checkGueltigkeit() {
+    let inputVon = document.getElementById("inputVon").value;
+    let inputBis = document.getElementById("inputBis").value;
+    let inputDateVon = document.getElementById("inputDateVon").value;
+    let inputDateBis = document.getElementById("inputDateBis").value;
+
+    if(inputVon === "" || inputBis === "" || inputDateVon === "" || inputDateBis === ""){
+        alert("Bitte gib eine gültige Angabe ein!");
+    }
+    else{
+        //function
+        alert("Richtig!");
     }
 }

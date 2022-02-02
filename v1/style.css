@@ -2,6 +2,21 @@
     font-family: Arial, serif;
     text-align: center;
 }
+
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'StartContainer StartContainer OptionContainer'
+    'ChangeContainer ChangeContainer OptionContainer'
+    'StopContainer StopContainer OptionContainer'
+    'CheckBoxContainer CheckBoxContainer CheckBoxContainer'
+    'AusgabeContainer AusgabeContainer AusgabeContainer';
+}
+
 .titleStartStop{
     font-family: Arial, serif;
 }
@@ -26,9 +41,9 @@
     height: 30px;
 }
 #footer{
-    position: fixed;
+    position: absolute;
     padding: 10px 10px 0px 10px;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     text-align: center;
     height: auto;
@@ -55,32 +70,41 @@
 #optionenText{
     padding: 5px;
     margin: 5px;
-    width: 50%;
-    float: right;
+    width: 100%;
+    grid-area: OptionContainer;
+    height: max-content;
 }
 #ausgabeBoxOptionen{
     padding: 5px;
-    width: 50%;
+    width: 100%;
     float: right;
+    top: 0;
 }
-collapseOptionen{
-    padding: 5px;
-    width: 50%;
-    right: 0;
-    position: absolute;
+#collapseOptionen{
+    position: relative;
+    width: 100%;
+    top: 0;
 }
 #divStartContainer{
-    display: block;
+    grid-area: StartContainer;
     width: auto;
-    float: left;
+    margin: 0;
 }
 #divChangeContainer{
-    display: block;
+    grid-area: ChangeContainer;
     width: auto;
-    float: left;
+    margin: 0;
 }
 #divStopContainer{
-    display: block;
+    grid-area: StopContainer;
     width: auto;
-    float: left;
+    margin: 0;
+    left: 0;
+}
+#divCheckBox{
+    grid-area: CheckBoxContainer;
+}
+
+#ausgabeText{
+    grid-area: AusgabeContainer;
 }

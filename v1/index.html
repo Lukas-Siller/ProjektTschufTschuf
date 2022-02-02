@@ -14,13 +14,13 @@
 <body style="background-color: whitesmoke">
     <div class="container mt-5">
         <h1 id="titleBig" class="display-4"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf</h1>
-        <div class="row">
+        <div class="grid-container">
             <div id="divStartContainer" class="container pt-2">
                 <h3 class="titleStartStop">Start</h3>
                 <div id="divStart" class="container pt-1 border">
                     <input id="inputVon" type="text" placeholder="Von">
                     <input id="inputDateVon" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateVon')" onchange="changeValueOfDate()">
-                    <button class="btn-primary" id="btnVon">Ok</button>
+                    <button class="btn-primary" id="btnVon" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
             <div id="divChangeContainer" class="container pt-2">
@@ -30,8 +30,7 @@
                 <h3 class="titleStartStop">Stop</h3>
                 <div id="divStop" class="container pt-1 border">
                     <input id="inputBis" type="text" placeholder="Bis"> <!-- onkeydown="if (event.keyCode == 13)document.getElementById('btnBis').click()" -->
-                    <input id="inputDateBis" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateBis')">
-                    <button id="btnBis" class="btn-primary">Ok</button>
+                    <button id="btnBis" class="btn-primary" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
             <div>
@@ -46,8 +45,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container pt-3">
-                <form> <!-- Checkboxen noch hidden machen plus on click die opacity verändern -> (checkbox angecklickt opacity = 1 sonst 0 oder 0.5) -->
+            <div id="divCheckBox" class="container pt-2">
+                <form>
                     <input id="checkBus" type="checkbox" value="Bus" hidden onclick="opacity_change('checkBusIMG')">
                     <label for="checkBus"><img id="checkBusIMG" style="opacity: 0.3" src="images/busBlue.png"></label>
                     <input id="checkZug" type="checkbox" value="Zug" hidden onclick="opacity_change('checkZugIMG')">
@@ -55,7 +54,7 @@
                 </form>
             </div>
             <br><br><br>
-            <div>
+            <div id="ausgabeText">
                 <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte()">
                     <h2>Ausgabe ↓</h2>
                 </a>
@@ -69,17 +68,10 @@
             </div>
         </div>
     </div>
-    <div id="footer">
-        <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
-        <p><cite>No matter where you are you will always catch the right bus.</cite></p>
-        <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
-    </div>
-    <!--
-    <footer id="footer" class="card-footer">
-        <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
-        <p><cite>No matter where you are you will always catch the right bus.</cite></p>
-        <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
-    </footer>
-    -->
 </body>
+<div id="footer">
+    <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
+    <p><cite>No matter where you are you will always catch the right bus.</cite></p>
+    <p>Copyright &copy;2022 TschufTschuf - <a href="impressum.html" title="Impressum">Impressum</a></p>
+</div>
 </html>
