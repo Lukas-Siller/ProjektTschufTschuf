@@ -10,7 +10,7 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-    'StartContainer StartContainer OptionContainer'
+    'StartContainer StartContainer ZeitContainer'
     'ChangeContainer ChangeContainer OptionContainer'
     'StopContainer StopContainer OptionContainer'
     'CheckBoxContainer CheckBoxContainer CheckBoxContainer'
@@ -41,7 +41,7 @@
     height: 30px;
 }
 #footer{
-    position: absolute;
+    margin-top: 50px;
     padding: 10px 10px 0px 10px;
     bottom: 0px;
     width: 100%;
@@ -92,8 +92,9 @@
 }
 #divChangeContainer{
     grid-area: ChangeContainer;
-    width: auto;
+    width: min-content;
     margin: 0;
+    position: static;
 }
 #divStopContainer{
     grid-area: StopContainer;
@@ -103,8 +104,25 @@
 }
 #divCheckBox{
     grid-area: CheckBoxContainer;
+    margin: 10px;
 }
 
 #ausgabeText{
     grid-area: AusgabeContainer;
+}
+#leer{
+    grid-area: LeerContainer;
+}
+
+#zeitAusgabe{
+    /*grid-area: ZeitContainer;*/
+    width: min-content;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0;
+}
+
+#tableAusgaben{
+    /*hoi*/
 }

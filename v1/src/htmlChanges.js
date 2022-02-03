@@ -22,6 +22,8 @@ function func_date_time(idString) {
     let date_time = `${ye}-${mo}-${da}T${time}`; //current Time/Date
     console.log("Current Time:" + date_time);
 
+    if(idString === "")
+
     document.getElementById('inputDateVon').min = date_time;
 }
 
@@ -85,4 +87,21 @@ function checkGueltigkeit() {
         //function
         alert("Richtig!");
     }
+}
+
+function timeOutput() {
+    function showTime() {
+        setInterval(showTime, 1000);
+        let time = new Date();
+        let hour = time.getHours();
+        let min = time.getMinutes();
+
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+
+        let currentTime = hour + ":" + min;
+
+        document.getElementById("zeitAusgabe").innerHTML = currentTime;
+    }
+    showTime();
 }

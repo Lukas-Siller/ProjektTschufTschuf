@@ -9,11 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/src.js"></script>
     <script src="src/htmlChanges.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title>TschufTschuf</title>
 </head>
 <body style="background-color: whitesmoke">
     <div class="container mt-5">
-        <h1 id="titleBig" class="display-4"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf</h1>
+        <h1 id="titleBig" class="display-4"><img id="iconPic" class="float-lg-start" src="images/favicon.ico" alt="Bus Icon Image">TschufTschuf<p style="font-size: xx-large" class="float-lg-end" id="zeitAusgabe"></p></h1>
+        <script>
+            window.onload = timeOutput();
+        </script>
+        <br><br>
         <div class="grid-container">
             <div id="divStartContainer" class="container pt-2">
                 <h3 class="titleStartStop">Start</h3>
@@ -35,7 +40,7 @@
             </div>
             <div>
                 <a id="optionenText" class="btn" data-bs-toggle="collapse" href="#collapseOptionen" onclick="ausgabeWerte()">
-                    <h2>Optionen ↓</h2>
+                    <h3 style="font-family: Arial, serif;">Optionen ↓</h3>
                 </a>
                 <div style="background-color: whitesmoke" id="collapseOptionen" class="collapse">
                     <div id="ausgabeBoxOptionen" class="container pt-1 border">
@@ -45,6 +50,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="divCheckBox" class="container pt-2">
                 <form>
                     <input id="checkBus" type="checkbox" value="Bus" hidden onclick="opacity_change('checkBusIMG')">
@@ -56,18 +62,28 @@
             <br><br><br>
             <div id="ausgabeText">
                 <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte()">
-                    <h2>Ausgabe ↓</h2>
+                    <h2 style="font-family: Arial, serif;"  >Ausgabe ↓</h2>
                 </a>
                 <div style="background-color: whitesmoke" id="collapseOne" class="collapse">
                     <div id="ausgabeBox" class="container pt-1 border">
                         <form>
                             <label id="zugOderBus"></label> - <label id="zeitStart"></label> - <label id="zeitStop"></label>
+                            <table id="tableAusgaben">
+                                <tr>
+                                    <th style="width: auto; padding: 5px">Start</th>
+                                    <th style="width: auto; padding: 5px">Stop</th>
+                                    <th style="width: auto; padding: 5px">Startzeit</th>
+                                    <th style="width: auto; padding: 5px">Ankunftszeit</th>
+                                    <th style="width: auto; padding: 5px">Fahrtzeit</th>
+                                </tr>
+                            </table>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 <div id="footer">
     <p><a href="https://github.com/Alex-Hofer">Hofer</a> | <a href="https://github.com/Lukas-Siller">Siller</a></p>
