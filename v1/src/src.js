@@ -4,6 +4,8 @@ const startPlace = "Brixen", endPlace = "Bozen";
 let startTime = "", endTime = "";
 let startDate = "";
 
+//DM Request = abfartsliste
+
 //XML_TRIP_REQUEST = fartenanfrage
 //2?
 //locationServerActive=1
@@ -17,6 +19,7 @@ let startDate = "";
 //name_origin="startPlace"
 //type_destination=any
 //name_destination="endPlace"
+//&outputFormat=JSON&
 
 document.addEventListener("DOMContentLoaded", function() {
     buildRequest("Sterzing", "Brixen Dantestraße", "", "", "trip");
@@ -36,6 +39,8 @@ function buildRequest(sP, eP, sT, eT, typeOfRequest){
         let sp = startPlace.replace(/ /g,"%20");
         let ep = endPlace.replace(/ /g, '%20');
         req = req+'type_origin=any&name_origin='+sp+'&type_destination=any&name_destination='+ep;
+        //als JSON ausgeben
+        req = req+"&outputFormat=JSON";
         console.log("REQ = "+ req);
     }
 
@@ -44,28 +49,25 @@ function buildRequest(sP, eP, sT, eT, typeOfRequest){
     return req;
 }
 
+window.onload = function (){
+    getData();
+}
+
+function getData(){
+    let startName, endName, duration, startTime, endTime;
+    fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
+        .then(response => response.json())
+        .then(data => {
+            startTime = data.trips[0].legs[0].points[0].dateTime.time;
+            startName = data.trips[0].legs[0].points[0].nameWO;
+            endTime = data.trips[0].legs[0].points[1].dateTime.time;
+            endName = data.trips[0].legs[0].points[1].nameWO;
+            duration = data.trips[0].duration;
+
+            console.log(startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
 
 
+        });
 
+}
 
-// fetch-Aufruf mit Pfad zur XML-Datei XML auslesen
-fetch ('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen')
-    .then (function (response) {
-        // Antwort kommt als Text-String
-        return response.text();
-    })
-    .then (function (data) {
-        console.log (data);			  // schnell mal in der Konsole checken
-
-        // String in ein XML-DOM-Objekt umwandeln
-        let parser = new DOMParser(),
-            xmlDoc = parser.parseFromString (data, 'text/xml');
-
-        //und noch ein paar Test-Ausgaben in die Konsole
-        console.log (xmlDoc.getElementsByTagName('content'));
-        console.log ("item "  + xmlDoc.getElementsByTagName ('item')[1].children[0].textContent);
-
-        comicToday(xmlDoc);			// Funktion zur Bearbeitung mit dem geparsten xmlDoc aufrufen
-    }).catch (function (error) {
-    console.log ("Fehler: bei Auslesen der XML- Datei " + error);
-});
