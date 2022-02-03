@@ -56,12 +56,9 @@ function ausgabeWerte() {
     else if (document.getElementById("checkBusIMG").style.opacity === '1'){
         document.getElementById("zugOderBus").innerText = "Bus";
     }
-    else{
+    else {
         document.getElementById("zugOderBus").innerText = "";
     }
-
-    document.getElementById("zeitStart").innerText = document.getElementById("inputDateVon").value;
-    document.getElementById("zeitStop").innerText = document.getElementById("inputDateBis").value;
 }
 
 function changeValueOfDate(){
