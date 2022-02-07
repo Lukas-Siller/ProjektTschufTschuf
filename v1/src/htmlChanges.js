@@ -38,7 +38,6 @@ function changeValues () {
     let textInputVon = document.getElementById("inputVon").value;
     let textInputBis = document.getElementById("inputBis").value;
     //let dateVon = document.getElementById("inputDateVon").value;
-    //let dateBis = document.getElementById("inputDateBis").value;
 
     document.getElementById("inputBis").value = textInputVon;
     document.getElementById("inputVon").value = textInputBis;
@@ -63,9 +62,8 @@ function checkGueltigkeit() {
     let inputVon = document.getElementById("inputVon").value;
     let inputBis = document.getElementById("inputBis").value;
     let inputDateVon = document.getElementById("inputDateVon").value;
-    let inputDateBis = document.getElementById("inputDateBis").value;
 
-    if(inputVon === "" || inputBis === "" || inputDateVon === "" || inputDateBis === ""){
+    if(inputVon === "" || inputBis === "" || inputDateVon === ""){
         alert("Bitte gib eine gültige Angabe ein!");
     }
     else{
