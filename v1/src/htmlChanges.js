@@ -22,8 +22,6 @@ function func_date_time(idString) {
     let date_time = `${ye}-${mo}-${da}T${time}`; //current Time/Date
     console.log("Current Time:" + date_time);
 
-    if(idString === "")
-
     document.getElementById('inputDateVon').min = date_time;
 }
 
@@ -58,16 +56,6 @@ function ausgabeWerte() {
     }
     else {
         document.getElementById("zugOderBus").innerText = "";
-    }
-}
-
-function changeValueOfDate(){
-    if(document.getElementById('inputDateBis').value <= document.getElementById('inputDateVon').value){
-        document.getElementById('inputDateBis').value = document.getElementById('inputDateVon').value;
-        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
-    }
-    else{
-        document.getElementById('inputDateBis').min = document.getElementById('inputDateVon').value;
     }
 }
 
