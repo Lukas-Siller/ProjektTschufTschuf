@@ -27,10 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function buildRequest(sP, eP, sT, eT, typeOfRequest){
     let req = 'https://efa.sta.bz.it/apb/';
-    console.log(req);
-    if (typeOfRequest == "trip"){
+    //es muss noch zeit hinzugefügt werden
+    console.log("start test2: " + sP + eP   );
+    if (typeOfRequest === "trip"){
         req = req+'XML_TRIP_REQUEST2?';
-        req = req+'locationServerActive=1&'+'stateless=1%20&';
+        req = req+'locationServerActive=1&'+'stateless=%201&';
         //add time
         if (startTime !== "" && startDate !== ""){
             req = req+'itdDate='+startTime+"&"+'itdTime'+startDate+"&";
@@ -43,9 +44,6 @@ function buildRequest(sP, eP, sT, eT, typeOfRequest){
         req = req+"&outputFormat=JSON";
         console.log("REQ = "+ req);
     }
-
-
-
     return req;
 }
 
@@ -54,20 +52,21 @@ window.onload = function (){
 }
 
 function getData(){
-    let startName, endName, duration, startTime, endTime;
+    let startName, endName, duration, startTime, endTime, vmNr;
     fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
         .then(response => response.json())
         .then(data => {
-            startTime = data.trips[0].legs[0].points[0].dateTime.time;
-            startName = data.trips[0].legs[0].points[0].nameWO;
-            endTime = data.trips[0].legs[0].points[1].dateTime.time;
-            endName = data.trips[0].legs[0].points[1].nameWO;
-            duration = data.trips[0].duration;
+            for (let i = 0; i < data.trips.length; i++){
+                startTime = data.trips[0].legs[0].points[0].dateTime.time;
+                startName = data.trips[0].legs[0].points[0].nameWO;
+                endTime = data.trips[0].legs[0].points[1].dateTime.time;
+                endName = data.trips[0].legs[0].points[1].nameWO;
+                duration = data.trips[0].duration;
 
-            console.log(startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
+                console.log(i + " " + startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
+            }
 
 
         });
-
 }
 
