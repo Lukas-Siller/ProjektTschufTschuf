@@ -10,9 +10,9 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-    'StartContainer StartContainer ZeitContainer'
-    'ChangeContainer ChangeContainer OptionContainer'
-    'StopContainer StopContainer OptionContainer'
+    'StartContainer StartContainer WetterContainer'
+    'ChangeContainer ChangeContainer WetterContainer'
+    'StopContainer StopContainer WetterContainer'
     'CheckBoxContainer CheckBoxContainer CheckBoxContainer'
     'AusgabeContainer AusgabeContainer AusgabeContainer';
 }
@@ -41,6 +41,7 @@
     height: 30px;
 }
 #footer{
+    position: fixed;
     margin-top: 50px;
     padding: 10px 10px 0px 10px;
     bottom: 0px;
@@ -123,7 +124,7 @@
     top: 0;
 }
 
-#tableAusgaben{
+#tableAusgeben{
     /*hoi*/
 }
 
@@ -141,4 +142,15 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+#wetterAusgabe{
+    grid-area: WetterContainer;
+}
+
+#wetterIcon{
+    height: 75px;
+    width: 100px;
+    float: right;
+    top: 0;
 }

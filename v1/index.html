@@ -39,17 +39,8 @@
                     <button id="btnBis" class="btn-primary" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
-            <div>
-                <a id="optionenText" class="btn" data-bs-toggle="collapse" href="#collapseOptionen" onclick="ausgabeWerte()">
-                    <h3 style="font-family: Arial, serif;">Optionen ↓</h3>
-                </a>
-                <div style="background-color: whitesmoke" id="collapseOptionen" class="collapse">
-                    <div id="ausgabeBoxOptionen" class="container pt-1 border">
-                        <form>
-                            <label>Optionen</label>
-                        </form>
-                    </div>
-                </div>
+            <div id="wetterAusgabe">
+                <img id="wetterIcon" src="images/weather.png">
             </div>
 
             <div id="divCheckBox" class="container pt-2">
@@ -62,14 +53,14 @@
             </div>
             <br><br><br>
             <div id="ausgabeText">
-                <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte()">
+                <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte(0)">
                     <h2 style="font-family: Arial, serif;"  >Ausgabe ↓</h2>
                 </a>
                 <div style="background-color: whitesmoke" id="collapseOne" class="collapse">
                     <div id="ausgabeBox" class="container pt-1 border">
                         <form>
                             <label id="zugOderBus" style="padding: 5px"></label><label id="zeitStart"></label><label id="zeitStop"></label>
-                            <table id="tableAusgaben">
+                            <table id="tableAusgeben">
                                 <tr>
                                     <th style="width: auto; padding: 5px">NR</th>
                                     <th style="width: auto; padding: 5px">Start</th>
@@ -77,14 +68,6 @@
                                     <th style="width: auto; padding: 5px">Startzeit</th>
                                     <th style="width: auto; padding: 5px">Ankunftszeit</th>
                                     <th style="width: auto; padding: 5px">Fahrtzeit</th>
-                                </tr>
-                                <tr>
-                                    <td>315</td>
-                                    <td>Sterzing Bahnhof</td>
-                                    <td>fdfdfsdfdsfdsfds</td>
-                                    <td>fdfdfsdfdsfdsfds</td>
-                                    <td>fdfdfsdfdsfdsfds</td>
-                                    <td>fdfdfsdfdsfdsfds</td>
                                 </tr>
                             </table>
                         </form>
