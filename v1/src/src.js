@@ -51,20 +51,22 @@ window.onload = function (){
     getData();
 }
 
+//sind alle in file drinnen
 function getData(){
     let startName, endName, duration, startTime, endTime, vmNr;
-    fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
+        fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
         .then(response => response.json())
         .then(data => {
-            for (let i = 0; i < data.trips.length; i++){
-                startTime = data.trips[0].legs[0].points[0].dateTime.time;
-                startName = data.trips[0].legs[0].points[0].nameWO;
-                endTime = data.trips[0].legs[0].points[1].dateTime.time;
-                endName = data.trips[0].legs[0].points[1].nameWO;
-                duration = data.trips[0].duration;
-
-                console.log(i + " " + startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
+            console.log(data.trips.length);
+            for (let i = 0; i<data.trips.length;i++){
+                startTime = data.trips[i].legs[0].points[0].dateTime.time;
+                startName = data.trips[i].legs[0].points[0].nameWO;
+                endTime = data.trips[i].legs[0].points[1].dateTime.time;
+                endName = data.trips[i].legs[0].points[1].nameWO;
+                duration = data.trips[i].duration;
+                console.log(startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
             }
+
 
 
         });
