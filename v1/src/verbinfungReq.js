@@ -1,4 +1,4 @@
-//API request
+//API verbindung request
 //now const later get from htmlChanges.js
 const startPlace = "Brixen", endPlace = "Bozen";
 let startTime = "", endTime = "";
@@ -22,12 +22,13 @@ let startDate = "";
 //&outputFormat=JSON&
 
 document.addEventListener("DOMContentLoaded", function() {
+    //wie bekomme ich die Start und end Zeit??
     buildRequest("Sterzing", "Brixen Dantestraße", "", "", "trip");
 });
 
 function buildRequest(sP, eP, sT, eT, typeOfRequest){
     let req = 'https://efa.sta.bz.it/apb/';
-    //es muss noch zeit hinzugefügt werden
+    let today = new Date();
     console.log("start test2: " + sP + eP   );
     if (typeOfRequest === "trip"){
         req = req+'XML_TRIP_REQUEST2?';
@@ -43,32 +44,39 @@ function buildRequest(sP, eP, sT, eT, typeOfRequest){
         //als JSON ausgeben
         req = req+"&outputFormat=JSON";
         console.log("REQ = "+ req);
+    }else if (typeOfRequest === "DM"){
+        //CODE für DM
     }
     return req;
 }
 
 window.onload = function (){
-    getData();
+    getDataTrip();
 }
 
+//soll aufgerufen werden wenn button ok gedrückt wurde und alle daten eingegeben wurden.
 //sind alle in file drinnen
-function getData(){
+function getDataTrip(){
     let startName, endName, duration, startTime, endTime, vmNr;
+    let daten =  [...Array(5)].map(e => Array(5).fill(0));;
         fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
         .then(response => response.json())
         .then(data => {
             console.log(data.trips.length);
             for (let i = 0; i<data.trips.length;i++){
                 startTime = data.trips[i].legs[0].points[0].dateTime.time;
+                daten[i][0] = startTime;
                 startName = data.trips[i].legs[0].points[0].nameWO;
+                daten[i][1] = startName;
                 endTime = data.trips[i].legs[0].points[1].dateTime.time;
+                daten[i][2] = endTime;
                 endName = data.trips[i].legs[0].points[1].nameWO;
+                daten[i][3] = endName;
                 duration = data.trips[i].duration;
+                daten[i][4] = startTime;
                 console.log(startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
             }
-
-
-
         });
+        return daten;
 }
 
