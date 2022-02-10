@@ -23,7 +23,7 @@
         <br><br>
         <div class="grid-container">
             <div id="divStartContainer" class="container pt-2">
-                <h3 class="titleStartStop">Start</h3>
+                <h3 class="titleFont">Start</h3>
                 <div id="divStart" class="container pt-1 border">
                     <input id="inputVon" type="text" placeholder="Von">
                     <input id="inputDateVon" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateVon')">
@@ -34,7 +34,7 @@
                 <button id="btnWechseln" class="btn" type="button" onclick="changeValues()"></button>
             </div>
             <div id="divStopContainer" class="container pt-2">
-                <h3 class="titleStartStop">Stop</h3>
+                <h3 class="titleFont">Stop</h3>
                 <div id="divStop" class="container pt-1 border">
                     <input id="inputBis" type="text" placeholder="Bis"> <!-- onkeydown="if (event.keyCode == 13)document.getElementById('btnBis').click()" -->
                     <button id="btnBis" class="btn-primary" onclick="checkGueltigkeit()">Ok</button>
@@ -42,8 +42,12 @@
             </div>
             <div id="wetterAusgabe">
                 <img id="wetterIcon" src="images/weather.png">
+                <h5 style="text-align: left; margin-left: 10px;" class="titleFont">aktuell:</h5>
+                <h3 id="wetterTextPos" class="titleFont">Standort</h3>
+                <br>
+                <h3 id="wetterTextTemp" class="titleFont">Zustand+Temp</h3>
             </div>
-
+            <!--
             <div id="divCheckBox" class="container pt-2">
                 <form>
                     <input id="checkBus" type="checkbox" value="Bus" hidden onclick="opacity_change('checkBusIMG')">
@@ -52,7 +56,9 @@
                     <label for="checkZug"><img id="checkZugIMG" style="opacity: 0.3" src="images/trainRed.png"></label>
                 </form>
             </div>
+
             <br><br><br>
+            -->
             <div id="ausgabeText">
                 <a class="btn" data-bs-toggle="collapse" href="#collapseOne" onclick="ausgabeWerte(0)">
                     <h2 style="font-family: Arial, serif;"  >Ausgabe ↓</h2>

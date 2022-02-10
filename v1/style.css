@@ -13,11 +13,11 @@
     'StartContainer StartContainer WetterContainer'
     'ChangeContainer ChangeContainer WetterContainer'
     'StopContainer StopContainer WetterContainer'
-    'CheckBoxContainer CheckBoxContainer CheckBoxContainer'
+    /*'CheckBoxContainer CheckBoxContainer CheckBoxContainer'*/
     'AusgabeContainer AusgabeContainer AusgabeContainer';
 }
 
-.titleStartStop{
+.titleFont{
     font-family: Arial, serif;
 }
 #iconPic{
@@ -125,7 +125,7 @@
 }
 
 #tableAusgeben{
-    /*hoi*/
+    /*table*/
 }
 
 table {
@@ -151,6 +151,16 @@ tr:nth-child(even) {
 #wetterIcon{
     height: 75px;
     width: 100px;
+    margin-left: 10px;
     float: right;
     top: 0;
+}
+
+
+#wetterTextPos{
+    text-align: left;
+    margin-left: 10px;
+}
+#wetterTextTemp{
+    text-align: right;
 }

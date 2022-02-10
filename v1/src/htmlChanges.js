@@ -46,6 +46,7 @@ function changeValues () {
 let counter = 0;
 
 function ausgabeWerte() {
+    /*
     if (document.getElementById("checkBusIMG").style.opacity === '1' && document.getElementById("checkZugIMG").style.opacity === '1'){
         document.getElementById("zugOderBus").innerText = "Zug & Bus";
     }
@@ -58,6 +59,8 @@ function ausgabeWerte() {
     else {
         document.getElementById("zugOderBus").innerText = "";
     }
+
+     */
 
     if(counter === 0){
         counter++;
@@ -86,7 +89,7 @@ function checkGueltigkeit() {
 
 function timeOutput() {
     function showTime() {
-        setInterval(showTime, 1000);
+        setInterval(showTime, 10000);
         let time = new Date();
         let hour = time.getHours();
         let min = time.getMinutes();
@@ -102,6 +105,9 @@ function timeOutput() {
 }
 
 function createTable() {
+
+    let dataArray = getDataTrip();
+
     const arr = [
         "NR",
         "Start",
@@ -109,30 +115,6 @@ function createTable() {
         "Startzeit",
         "Ankunftszeit",
         "Fartzeit",
-        "NR",
-        "Start",
-        "Stop",
-        "Startzeit",
-        "Ankunftszeit",
-        "Fartzeit",
-        "NR",
-        "Start",
-        "Stop",
-        "Startzeit",
-        "Ankunftszeit",
-        "Fartzeit",
-        "NR",
-        "Start",
-        "Stop",
-        "Startzeit",
-        "Ankunftszeit",
-        "Fartzeit",
-        "NR",
-        "Start",
-        "Stop",
-        "Startzeit",
-        "Ankunftszeit",
-        "Fartzeit"
         ]
     var table = document.getElementById("tableAusgeben");
 
@@ -142,30 +124,11 @@ function createTable() {
         for (var j = 0; j <= 5; j++) {
             var cell = document.createElement("td");
             var cellText = document.createTextNode(arr[j] + i);
+            console.log(dataArray[1][1]);
+            //var cellText = document.createTextNode();
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
         table.appendChild(row);
     }
-
-
-/*
-<tr>
-    <th style="width: auto; padding: 5px">NR</th>
-    <th style="width: auto; padding: 5px">Start</th>
-    <th style="width: auto; padding: 5px">Stop</th>
-    <th style="width: auto; padding: 5px">Startzeit</th>
-    <th style="width: auto; padding: 5px">Ankunftszeit</th>
-    <th style="width: auto; padding: 5px">Fahrtzeit</th>
-</tr>
-
-<tr>
-    <td>315</td>
-    <td>Sterzing Bahnhof</td>
-    <td>Obertelfes</td>
-    <td>14:11</td>
-    <td>14:28</td>
-    <td>17 min</td>
-</tr>
-*/
 }
