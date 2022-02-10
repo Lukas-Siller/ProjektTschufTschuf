@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     buildRequest("Sterzing", "Brixen Dantestraße", "", "", "trip");
 });
 
-function buildRequest(sP, eP, sT, eT, typeOfRequest){
+async function buildRequest(sP, eP, sT, eT, typeOfRequest){
     let req = 'https://efa.sta.bz.it/apb/';
     let today = new Date();
     console.log("start test2: " + sP + eP   );
@@ -47,22 +47,77 @@ function buildRequest(sP, eP, sT, eT, typeOfRequest){
     }else if (typeOfRequest === "DM"){
         //CODE für DM
     }
-    return req;
+
+    /*for(let i = 0; i<6; i++){
+        for(let c = 0; c<6; c++){
+            console.log(d[i][c]);
+        }
+    }*/
+    let d = getDataTrip();
+    console.log(d);
+    return d.then(function(result){
+        for(let i = 0; i<4; i++){
+            for(let c = 0; c<6; c++){
+                console.log(result[i][c]);
+            }
+        }
+    });
 }
 
-window.onload = function (){
-    getDataTrip();
-}
+
 
 //soll aufgerufen werden wenn button ok gedrückt wurde und alle daten eingegeben wurden.
 //sind alle in file drinnen
-function getDataTrip(){
+async function getDataTrip(){
     let startName, endName, duration, startTime, endTime, vmNr;
-    let daten =  [...Array(5)].map(e => Array(5).fill(0));;
-        fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
-        .then(response => response.json())
+    let array = [];
+
+    let response = await fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON');
+    data = await response.json();
+    for (let i = 0; i<data.trips.length;i++) {
+        startTime = data.trips[i].legs[0].points[0].dateTime.time;
+        startName = data.trips[i].legs[0].points[0].nameWO;
+        endTime = data.trips[i].legs[0].points[1].dateTime.time;
+        endName = data.trips[i].legs[0].points[1].nameWO;
+        duration = data.trips[i].duration;
+        vmNr = data.trips[i].legs[0].mode.name;
+        let e = [startTime, startName, endTime, endName, duration, vmNr];
+        console.log(e);
+        array.push(e);
+        console.log(array);
+        //console.log(startTime + " " + startName + " " + endTime + " " + endName + " " + duration);
+    }
+    console.log(array);
+    return array;
+
+
+    /*await fetch('https://efa.sta.bz.it/apb/XML_TRIP_REQUEST2?locationServerActive=1&stateless=%201&type_origin=any&name_origin=Bozen%20Bahnhof%20Bozen&type_destination=any&name_destination=Brixen%20Bahnhof%20Brixen&outputFormat=JSON')
+        .then((response) => {
+            return response.json().then((data) => {
+                for (let i = 0; i<data.trips.length;i++) {
+                    startTime = data.trips[i].legs[0].points[0].dateTime.time;
+                    daten[i][0] = startTime;
+                    startName = data.trips[i].legs[0].points[0].nameWO;
+                    daten[i][1] = startName;
+                    endTime = data.trips[i].legs[0].points[1].dateTime.time;
+                    daten[i][2] = endTime;
+                    endName = data.trips[i].legs[0].points[1].nameWO;
+                    daten[i][3] = endName;
+                    duration = data.trips[i].duration;
+                    daten[i][4] = startTime;
+                    vmNr = data.trips[i].legs[0].mode.name;
+                    daten[i][5] = vmNr;
+                    console.log(startTime + " " + startName + " " + endTime + " " + endName + " " + duration);
+                }
+                return data;
+            }).catch((err) => {
+                 console.log(err);
+            })
+        });
+
+
+             /*.then(response => response.json())
         .then(data => {
-            console.log(data.trips.length);
             for (let i = 0; i<data.trips.length;i++){
                 startTime = data.trips[i].legs[0].points[0].dateTime.time;
                 daten[i][0] = startTime;
@@ -74,9 +129,11 @@ function getDataTrip(){
                 daten[i][3] = endName;
                 duration = data.trips[i].duration;
                 daten[i][4] = startTime;
+                vmNr = data.trips[i].legs[0].mode.name;
+                daten[i][5] = vmNr;
                 console.log(startTime +" "+ startName +" "+ endTime +" "+ endName +" "+ duration);
             }
-        });
-        return daten;
+            return daten;
+        });*/
 }
 
