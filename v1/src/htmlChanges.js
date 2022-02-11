@@ -46,21 +46,6 @@ function changeValues () {
 let counter = 0;
 
 function ausgabeWerte() {
-    /*
-    if (document.getElementById("checkBusIMG").style.opacity === '1' && document.getElementById("checkZugIMG").style.opacity === '1'){
-        document.getElementById("zugOderBus").innerText = "Zug & Bus";
-    }
-    else if(document.getElementById("checkZugIMG").style.opacity === '1'){
-        document.getElementById("zugOderBus").innerText = "Zug";
-    }
-    else if (document.getElementById("checkBusIMG").style.opacity === '1'){
-        document.getElementById("zugOderBus").innerText = "Bus";
-    }
-    else {
-        document.getElementById("zugOderBus").innerText = "";
-    }
-
-     */
     console.log(counter);
     if(counter === 0){
         checkGueltigkeit();
@@ -130,35 +115,6 @@ function createTable(result) {
         }
         table.appendChild(row);
     }
-
-/*
-    const arr = [
-        "NR",
-        "Start",
-        "Stop",
-        "Startzeit",
-        "Ankunftszeit",
-        "Fartzeit",
-        ]
-    var table = document.getElementById("tableAusgeben");
-
-
-
-    for (var i = 0; i < 5; i++) {
-        var row = document.createElement("tr");
-
-        for (var j = 0; j <= 5; j++) {
-            var cell = document.createElement("td");
-            var cellText = document.createTextNode(arr[j] + i);
-            console.log("DATAARRAY: ", dataArray[1][1]);
-            //var cellText = document.createTextNode(dataArray[j][i]);
-            //console.log("DATAARRAY: ", dataArray[j][i]);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-    }
- */
 }
 function ausgabeWetter() {
     let d = getWetter();
@@ -207,10 +163,4 @@ function ausgabeWetter() {
         document.getElementById("brixenIDMax").innerHTML = result[brixen][1] + "°";
         document.getElementById("bruneckIDMax").innerHTML = result[bruneck][1] + "°";
     });
-
-
-
-
-    /*[min, max, description, imgUrl, ort]*/
-
 }
