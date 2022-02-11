@@ -124,8 +124,9 @@ function createTable() {
         for (var j = 0; j <= 5; j++) {
             var cell = document.createElement("td");
             var cellText = document.createTextNode(arr[j] + i);
-            console.log(dataArray[1][1]);
-            //var cellText = document.createTextNode();
+            //console.log("DATAARRAY: ", dataArray[1][1]);
+            //var cellText = document.createTextNode(dataArray[j][i]);
+            //console.log("DATAARRAY: ", dataArray[j][i]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
