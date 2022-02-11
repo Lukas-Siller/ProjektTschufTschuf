@@ -27,7 +27,7 @@ async function getWetter(){
 
     let response = await fetch('http://daten.buergernetz.bz.it/services/weather/bulletin?format=json&lang=de');
     data = await response.json();
-    console.log(data.today.stationData.length);
+   // console.log(data.today.stationData.length);
     for (let i = 0; i<data.today.stationData.length;i++) {
         min = data.today.stationData[i].min;
         max = data.today.stationData[i].max;
@@ -36,11 +36,8 @@ async function getWetter(){
         ort = orte[i];
         let e = [min, max, description, imgUrl, ort];
         wetter.push(e);
-        //console.log(wetter);
-        //console.log(min +" "+ max +" "+ ort +" "+ description +" ");
-        //console.log(startTime + " " + startName + " " + endTime + " " + endName + " " + duration);
     }
-    console.log(wetter);
+    //console.log(wetter);
     return wetter;
 }
 

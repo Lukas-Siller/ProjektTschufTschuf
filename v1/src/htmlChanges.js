@@ -85,7 +85,7 @@ function checkGueltigkeit() {
         let start = document.getElementById("inputVon").value;
         let end = document.getElementById("inputBis").value;
         let zeit = document.getElementById("inputDateVon").value;
-        buildRequest(start, end, zeit, trip);
+        buildRequest(start, end, zeit, "trip");
         if(counter === 0){
             createTable();
         }
