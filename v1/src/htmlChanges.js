@@ -86,7 +86,7 @@ function checkGueltigkeit() {
         let zeit = document.getElementById("inputDateVon").value;
         buildRequest(start, end, zeit, "trip");
         if(counter === 0){
-            createTable();
+            //createTable();
         }
         else{
             return 0;
@@ -111,29 +111,26 @@ function timeOutput() {
     showTime();
 }
 
-function createTable() {
+function createTable(result) {
     counter++;
-    let d = getDataTrip();
-    console.log(d);
-    return d.then(function(result){
-        for(let i = 0; i<4; i++){
-            for(let c = 0; c<6; c++){
-                console.log("RESULT BITE: ", result[i][c]);
-            }
+    for(let i = 0; i<4; i++){
+        for(let c = 0; c<6; c++){
+            console.log("RESULT BITE: ", result[i][c]);
         }
-        var table = document.getElementById("tableAusgeben");
-        for (var i = 0; i <= 3; i++) {
-            var row = document.createElement("tr");
+    }
+    var table = document.getElementById("tableAusgeben");
+    for (var i = 0; i <= 3; i++) {
+        var row = document.createElement("tr");
 
-            for (var j = 0; j <= 5; j++) {
-                var cell = document.createElement("td");
-                var cellText = document.createTextNode(result[i][j]);
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
+        for (var j = 0; j <= 5; j++) {
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(result[i][j]);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
         }
-    });
+        table.appendChild(row);
+    }
+
 /*
     const arr = [
         "NR",
