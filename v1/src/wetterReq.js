@@ -20,6 +20,7 @@ window.onload = function(){
     });
 }
 
+//wetter werte auslesen und zurück geben
 async function getWetter(){
     orte = ["Schlanders", "Meran", "Bozen", "Sterzing", "Brixen", "Brunneck"];
     let wetter = [];
@@ -27,7 +28,6 @@ async function getWetter(){
 
     let response = await fetch('http://daten.buergernetz.bz.it/services/weather/bulletin?format=json&lang=de');
     data = await response.json();
-   // console.log(data.today.stationData.length);
     for (let i = 0; i<data.today.stationData.length;i++) {
         min = data.today.stationData[i].min;
         max = data.today.stationData[i].max;
@@ -37,7 +37,6 @@ async function getWetter(){
         let e = [min, max, description, imgUrl, ort];
         wetter.push(e);
     }
-    //console.log(wetter);
     return wetter;
 }
 

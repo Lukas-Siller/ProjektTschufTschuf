@@ -1,11 +1,6 @@
 //API verbindung request
 //DM Request = abfartslist
 
-document.addEventListener("DOMContentLoaded", function() {
-    //wie bekomme ich die Start und end Zeit??
-    //buildRequest("Sterzing", "Brixen Dantestraße", "", "trip");
-});
-
 async function buildRequest(sP, eP, dateRequest, typeOfRequest){
     let req = 'https://efa.sta.bz.it/apb/';
     let today = new Date();
@@ -49,8 +44,6 @@ async function buildRequest(sP, eP, dateRequest, typeOfRequest){
         return result;
     });
 }
-
-
 
 //soll aufgerufen werden wenn button ok gedrückt wurde und alle daten eingegeben wurden.
 //sind alle in file drinnen
