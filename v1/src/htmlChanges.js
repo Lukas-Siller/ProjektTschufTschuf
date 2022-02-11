@@ -81,7 +81,6 @@ function checkGueltigkeit() {
         return 1;
     }
     else{
-        let trip = "trip";
         let start = document.getElementById("inputVon").value;
         let end = document.getElementById("inputBis").value;
         let zeit = document.getElementById("inputDateVon").value;
@@ -179,6 +178,7 @@ function ausgabeWetter() {
         let brixen = 4;
         let bruneck = 5;
 
+        //Ort
         document.getElementById("schlandersID").innerHTML = result[schlanders][4];
         document.getElementById("meranID").innerHTML = result[meran][4];
         document.getElementById("bozenID").innerHTML = result[bozen][4];
@@ -186,8 +186,29 @@ function ausgabeWetter() {
         document.getElementById("brixenID").innerHTML = result[brixen][4];
         document.getElementById("bruneckID").innerHTML = result[bruneck][4];
 
-        console.log("BITE: ", result[schlanders][1]);
-        console.log("HALLO");
+        //Bild
+        document.getElementById("schlandersIMG").src = result[schlanders][3];
+        document.getElementById("meranIMG").src = result[meran][3];
+        document.getElementById("bozenIMG").src = result[bozen][3];
+        document.getElementById("sterzingIMG").src = result[sterzing][3];
+        document.getElementById("brixenIMG").src = result[brixen][3];
+        document.getElementById("bruneckIMG").src = result[bruneck][3];
+
+        //Min
+        document.getElementById("schlandersIDMin").innerHTML = result[schlanders][0] + "°";
+        document.getElementById("meranIDMin").innerHTML = result[meran][0] + "°";
+        document.getElementById("bozenIDMin").innerHTML = result[bozen][0] + "°";
+        document.getElementById("sterzingIDMin").innerHTML = result[sterzing][0] + "°";
+        document.getElementById("brixenIDMin").innerHTML = result[brixen][0] + "°";
+        document.getElementById("bruneckIDMin").innerHTML = result[bruneck][0] + "°";
+
+        //Max
+        document.getElementById("schlandersIDMax").innerHTML = result[schlanders][1] + "°";
+        document.getElementById("meranIDMax").innerHTML = result[meran][1] + "°";
+        document.getElementById("bozenIDMax").innerHTML = result[bozen][1] + "°";
+        document.getElementById("sterzingIDMax").innerHTML = result[sterzing][1] + "°";
+        document.getElementById("brixenIDMax").innerHTML = result[brixen][1] + "°";
+        document.getElementById("bruneckIDMax").innerHTML = result[bruneck][1] + "°";
     });
 
 

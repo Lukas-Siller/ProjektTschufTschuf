@@ -139,15 +139,136 @@ tr:nth-child(even) {
 
 .wetterText{
     font-family: Arial, serif;
-    font-size: x-small;
+    font-size: small;
+    position: absolute;
+    font-weight: bold;
+}
+.wetterTextMin{
+    font-family: Arial, serif;
+    font-size: small;
+    position: absolute;
+    color: blue;
+    font-weight: bold;
+}
+.wetterTextMax{
+    font-family: Arial, serif;
+    font-size: small;
+    font-weight: bold;
+    position: absolute;
+    color: red;
+}
+.wetterIMG{
+    position: absolute;
 }
 
+/*Schlanders*/
+#schlandersID{
+    left: 10px;
+    top: 160px;
+}
+#schlandersIMG{
+    left: 5px;
+    top: 100px;
+}
+#schlandersIDMin{
+    left: 25px;
+    top: 176px;
+}
+#schlandersIDMax{
+    left: 45px;
+    top: 176px;
+}
+
+/*Meran*/
+#meranID{
+    left: 124px;
+    top: 141px;
+}
+#meranIMG{
+    left: 170px;
+    top: 105px;
+}
+#meranIDMin{
+    left: 125px;
+    top: 157px;
+}
+#meranIDMax{
+    left: 145px;
+    top: 157px;
+}
+
+/*Bozen*/
+#bozenID{
+    left: 215px;
+    top: 200px;
+}
+#bozenIMG{
+    left: 160px;
+    top: 230px;
+}
+#bozenIDMin{
+    left: 217px;
+    top: 216px;
+}
+#bozenIDMax{
+    left: 237px;
+    top: 216px;
+}
+
+/*Sterzing*/
 #sterzingID{
     left: 230px;
     top: 69px;
-    position: absolute;
 }
-#schlandersIMG{
-  position: absolute;
+#sterzingIMG{
+    left: 145px;
+    top: 30px;
 }
+#sterzingIDMin{
+    left: 240px;
+    top: 85px;
+}
+#sterzingIDMax{
+    left: 260px;
+    top: 85px;
+}
+
+/*Brixen*/
+#brixenID{
+    left: 282px;
+    top: 126px;
+}
+#brixenIMG{
+    left: 290px;
+    top: 150px;
+}
+#brixenIDMin{
+    left: 285px;
+    top: 142px;
+}
+#brixenIDMax{
+    left: 305px;
+    top: 142px;
+}
+
+/*Bruneck*/
+#bruneckID{
+    left: 345px;
+    top: 95px;
+}
+#bruneckIMG{
+    left: 340px;
+    top: 30px;
+}
+#bruneckIDMin{
+    left: 360px;
+    top: 111px;
+}
+#bruneckIDMax{
+    left: 380px;
+    top: 111px;
+}
+
+
+
 
