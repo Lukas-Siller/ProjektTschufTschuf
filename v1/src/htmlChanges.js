@@ -178,7 +178,6 @@ function ausgabeWetter() {
         let sterzing = 3;
         let brixen = 4;
         let bruneck = 5;
-        let min;
 
         document.getElementById("schlandersID").innerHTML = result[schlanders][4];
         document.getElementById("meranID").innerHTML = result[meran][4];
@@ -186,6 +185,7 @@ function ausgabeWetter() {
         document.getElementById("sterzingID").innerHTML = result[sterzing][4];
         document.getElementById("brixenID").innerHTML = result[brixen][4];
         document.getElementById("bruneckID").innerHTML = result[bruneck][4];
+
         console.log("BITE: ", result[schlanders][1]);
         console.log("HALLO");
     });
