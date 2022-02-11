@@ -78,9 +78,14 @@ function checkGueltigkeit() {
     let inputDateVon = document.getElementById("inputDateVon").value;
 
     if(inputVon === "" || inputBis === "" || inputDateVon === ""){
-        alert("Bitte gib eine gültige Angabe ein!");
+        return 1;
     }
     else{
+        let trip = "trip";
+        let start = document.getElementById("inputVon").value;
+        let end = document.getElementById("inputBis").value;
+        let zeit = document.getElementById("inputDateVon").value;
+        buildRequest(start, end, zeit, trip);
         if(counter === 0){
             createTable();
         }
@@ -181,7 +186,6 @@ function ausgabeWetter() {
         document.getElementById("sterzingID").innerHTML = result[sterzing][4];
         document.getElementById("brixenID").innerHTML = result[brixen][4];
         document.getElementById("bruneckID").innerHTML = result[bruneck][4];
-
         console.log("BITE: ", result[schlanders][1]);
         console.log("HALLO");
     });
