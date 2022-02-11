@@ -61,10 +61,9 @@ function ausgabeWerte() {
     }
 
      */
-
+    console.log(counter);
     if(counter === 0){
-        counter++;
-        createTable();
+        checkGueltigkeit();
     }
     else{
         return 0;
@@ -82,8 +81,12 @@ function checkGueltigkeit() {
         alert("Bitte gib eine gültige Angabe ein!");
     }
     else{
-        //function
-        alert("Richtig!");
+        if(counter === 0){
+            createTable();
+        }
+        else{
+            return 0;
+        }
     }
 }
 
@@ -105,9 +108,29 @@ function timeOutput() {
 }
 
 function createTable() {
+    counter++;
+    let d = getDataTrip();
+    console.log(d);
+    return d.then(function(result){
+        for(let i = 0; i<4; i++){
+            for(let c = 0; c<6; c++){
+                console.log("RESULT BITE: ", result[i][c]);
+            }
+        }
+        var table = document.getElementById("tableAusgeben");
+        for (var i = 0; i <= 3; i++) {
+            var row = document.createElement("tr");
 
-    let dataArray = getDataTrip();
-
+            for (var j = 0; j <= 5; j++) {
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(result[i][j]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+    });
+/*
     const arr = [
         "NR",
         "Start",
@@ -118,13 +141,15 @@ function createTable() {
         ]
     var table = document.getElementById("tableAusgeben");
 
+
+
     for (var i = 0; i < 5; i++) {
         var row = document.createElement("tr");
 
         for (var j = 0; j <= 5; j++) {
             var cell = document.createElement("td");
             var cellText = document.createTextNode(arr[j] + i);
-            //console.log("DATAARRAY: ", dataArray[1][1]);
+            console.log("DATAARRAY: ", dataArray[1][1]);
             //var cellText = document.createTextNode(dataArray[j][i]);
             //console.log("DATAARRAY: ", dataArray[j][i]);
             cell.appendChild(cellText);
@@ -132,4 +157,10 @@ function createTable() {
         }
         table.appendChild(row);
     }
+ */
+}
+function ausgabeWetter() {
+    let weter = getWetter();
+    console.log("WETTER: ", weter);
+
 }

@@ -81,7 +81,7 @@ async function getDataTrip(){
         endName = data.trips[i].legs[0].points[1].nameWO;
         duration = data.trips[i].duration;
         vmNr = data.trips[i].legs[0].mode.name;
-        let e = [startTime, startName, endTime, endName, duration, vmNr];
+        let e = [vmNr, startName, endName, startTime, endTime, duration];
         console.log(e);
         array.push(e);
         console.log(array);
