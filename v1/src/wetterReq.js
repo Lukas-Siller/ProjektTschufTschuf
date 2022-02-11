@@ -10,27 +10,38 @@ http://daten.buergernetz.bz.it/services/weather/district?format=json&lang=de
 */
 
 window.onload = function(){
-    getWetter();
+    let d =getWetter();
+    return d.then(function(result){
+        for(let i = 0; i<6; i++){
+            for(let c = 0; c<5; c++){
+                console.log(result[i][c]);
+            }
+        }
+    });
 }
 
-function getWetter(){
+async function getWetter(){
     orte = ["Schlander", "Meran", "Bozen", "Sterzing", "Brixen", "Brunneck"];
-    let wetter = [...Array(6)].map(e => Array(6).fill(0));
+    let wetter = [];
     let min, max, description, imgUrl, ort;
-    fetch('http://daten.buergernetz.bz.it/services/weather/bulletin?format=json&lang=de')
-        .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < 6; i++){
-                min = data.today.stationData[i].min;
-                max = data.today.stationData[i].max;
-                description = data.today.stationData[i].symbol.description;
-                imgUrl = data.today.stationData[i].symbol.imageUrl;
-                ort = orte[i];
-                console.log(min +" "+ max +" "+ ort +" "+ description +" ");
-            }
 
-            return wetter;
-        });
+    let response = await fetch('http://daten.buergernetz.bz.it/services/weather/bulletin?format=json&lang=de');
+    data = await response.json();
+    console.log(data.today.stationData.length);
+    for (let i = 0; i<data.today.stationData.length;i++) {
+        min = data.today.stationData[i].min;
+        max = data.today.stationData[i].max;
+        description = data.today.stationData[i].symbol.description;
+        imgUrl = data.today.stationData[i].symbol.imageUrl;
+        ort = orte[i];
+        let e = [min, max, description, imgUrl, ort];
+        wetter.push(e);
+        //console.log(wetter);
+        //console.log(min +" "+ max +" "+ ort +" "+ description +" ");
+        //console.log(startTime + " " + startName + " " + endTime + " " + endName + " " + duration);
+    }
+    console.log(wetter);
+    return wetter;
 }
 
 
