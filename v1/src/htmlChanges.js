@@ -160,7 +160,35 @@ function createTable() {
  */
 }
 function ausgabeWetter() {
-    let weter = getWetter();
-    console.log("WETTER: ", weter);
+    let d = getWetter();
+    return d.then(function(result){
+        for(let i = 0; i<6; i++){
+            for(let c = 0; c<5; c++){
+                console.log(result[i][c]);
+            }
+        }
+        let schlanders = 0;
+        let meran = 1;
+        let bozen = 2;
+        let sterzing = 3;
+        let brixen = 4;
+        let bruneck = 5;
+        let min;
+
+        document.getElementById("schlandersID").innerHTML = result[schlanders][4];
+        document.getElementById("meranID").innerHTML = result[meran][4];
+        document.getElementById("bozenID").innerHTML = result[bozen][4];
+        document.getElementById("sterzingID").innerHTML = result[sterzing][4];
+        document.getElementById("brixenID").innerHTML = result[brixen][4];
+        document.getElementById("bruneckID").innerHTML = result[bruneck][4];
+
+        console.log("BITE: ", result[schlanders][1]);
+        console.log("HALLO");
+    });
+
+
+
+
+    /*[min, max, description, imgUrl, ort]*/
 
 }

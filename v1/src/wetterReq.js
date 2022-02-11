@@ -21,7 +21,7 @@ window.onload = function(){
 }
 
 async function getWetter(){
-    orte = ["Schlander", "Meran", "Bozen", "Sterzing", "Brixen", "Brunneck"];
+    orte = ["Schlanders", "Meran", "Bozen", "Sterzing", "Brixen", "Brunneck"];
     let wetter = [];
     let min, max, description, imgUrl, ort;
 

@@ -10,12 +10,12 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-    'StartContainer StartContainer WetterContainer'
-    'ChangeContainer ChangeContainer WetterContainer'
-    'StopContainer StopContainer WetterContainer'
+    'StartContainer StartContainer WetterContainer WetterContainer'
+    'ChangeContainer ChangeContainer WetterContainer WetterContainer'
+    'StopContainer StopContainer WetterContainer WetterContainer'
     /*'CheckBoxContainer CheckBoxContainer CheckBoxContainer'*/
-    'AusgabeContainer AusgabeContainer AusgabeContainer'
-    'AusgabeContainer AusgabeContainer AusgabeContainer';
+    'AusgabeContainer AusgabeContainer AusgabeContainer AusgabeContainer'
+    'AusgabeContainer AusgabeContainer AusgabeContainer AusgabeContainer';
 }
 
 .titleFont{
@@ -128,17 +128,20 @@ tr:nth-child(even) {
 }
 
 #wetterIcon{
-    height: 75px;
-    width: 100px;
-    margin-left: 10px;
+    position: absolute;
     float: right;
-    top: 0;
+    width: 450px;
+    height: 300px;
 }
 
-#wetterTextPos{
-    text-align: left;
-    margin-left: 10px;
+.wetterText{
+    font-family: Arial, serif;
+    font-size: x-small;
 }
-#wetterTextTemp{
-    text-align: right;
+
+#sterzingID{
+    right: 300px;
+    top: 250px;
+    position: absolute;
 }
+

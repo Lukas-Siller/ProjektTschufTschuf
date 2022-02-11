@@ -40,17 +40,23 @@
                     <button id="btnBis" class="btn-primary" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
-            <div id="wetterAusgabe" onload="ausgabeWetter()">
-                <img id="wetterIcon" src="images/weather.png">
-                <h5 style="text-align: left; margin-left: 10px;" class="titleFont">aktuell:</h5>
+            <script>
+                window.onload = ausgabeWetter();
+            </script>
+            <div id="wetterAusgabe">
+                <img id="wetterIcon" src="images/wetterKarte2.png">
+                <h5 id="schlandersID" class="wetterText"></h5>
+                <h5 id="meranID" class="wetterText"></h5>
+                <h5 id="bozenID" class="wetterText"></h5>
+                <h5 id="sterzingID" class="wetterText"></h5>
+                <h5 id="brixenID" class="wetterText"></h5>
+                <h5 id="bruneckID" class="wetterText"></h5>
+               <!-- <h5 style="text-align: left; margin-left: 10px;" class="titleFont">aktuell:</h5>
                 <h3 id="wetterTextPos" class="titleFont">Standort</h3>
                 <br>
-                <h3 id="wetterTextTemp" class="titleFont">Zustand+Temp</h3>
+                <h3 id="wetterTextTemp" class="titleFont">Zustand+Temp</h3>-->
             </div>
-            <script>
-                //window.onload = timeOutput();
-                window.addEventListener('load', ausgabeWetter());
-            </script>
+
             <!--
             <div id="divCheckBox" class="container pt-2">
                 <form>
