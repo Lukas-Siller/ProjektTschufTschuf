@@ -23,25 +23,23 @@
         <br><br>
         <div class="grid-container">
             <div id="divStartContainer" class="container pt-2">
-                <h3 class="titleFont">Start</h3>
+                <h3 class="titleFont">Start - Stop</h3>
                 <div id="divStart" class="container pt-1 border">
-                    <input id="inputVon" type="text" placeholder="Von">
-                    <input id="inputDateVon" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateVon')">
+                    <input id="inputVon" type="text" placeholder="Von" alt="Eingabe von Startpunkt">
+                    <button id="btnWechseln" class="btn" type="button" onclick="changeValues()"></button>
+                    <input id="inputBis" type="text" placeholder="Bis" alt="Eingabe von Endpunkt"> <!-- onkeydown="if (event.keyCode == 13)document.getElementById('btnBis').click()" -->
                     <button class="btn-primary" id="btnVon" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
-            <div id="divChangeContainer" class="container pt-2">
-                <button id="btnWechseln" class="btn" type="button" onclick="changeValues()"></button>
-            </div>
             <div id="divStopContainer" class="container pt-2">
-                <h3 class="titleFont">Stop</h3>
+                <h3 class="titleFont">Date</h3>
                 <div id="divStop" class="container pt-1 border">
-                    <input id="inputBis" type="text" placeholder="Bis"> <!-- onkeydown="if (event.keyCode == 13)document.getElementById('btnBis').click()" -->
+                    <input id="inputDateVon" class="inputVonDate" type="datetime-local" onclick="func_date_time('inputDateVon')" alt="Eingabe Datum und Zeit">
                     <button id="btnBis" class="btn-primary" onclick="checkGueltigkeit()">Ok</button>
                 </div>
             </div>
             <script>
-                window.onload = ausgabeWetter();
+                window.addEventListener('load', ausgabeWetter());
             </script>
             <div id="wetterAusgabe">
                 <img id="wetterIcon" src="images/wetterKarte2.png">
