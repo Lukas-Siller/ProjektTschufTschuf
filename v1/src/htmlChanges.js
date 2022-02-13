@@ -47,15 +47,15 @@ let counter = 0;
 
 function ausgabeWerte() {
     console.log(counter);
-    if(counter === 0){
+    if (counter === 0) {
         checkGueltigkeit();
-    }
-    else{
+    } else {
         return 0;
     }
 
 
 }
+
 
 function checkGueltigkeit() {
     let inputVon = document.getElementById("inputVon").value;
@@ -66,12 +66,14 @@ function checkGueltigkeit() {
         return 1;
     }
     else{
-        let start = document.getElementById("inputVon").value;
-        let end = document.getElementById("inputBis").value;
-        let zeit = document.getElementById("inputDateVon").value;
-        buildRequest(start, end, zeit, "trip");
         if(counter === 0){
-            //createTable();
+            buildRequest(inputVon, inputBis, inputDateVon, "trip");
+
+        }
+        else if(counter !== 0){
+            var table = document.getElementById("tableAusgeben");
+            table.innerHTML = "";
+            buildRequest(inputVon, inputBis, inputDateVon, "trip");
         }
         else{
             return 0;
@@ -98,11 +100,6 @@ function timeOutput() {
 
 function createTable(result) {
     counter++;
-    for(let i = 0; i<4; i++){
-        for(let c = 0; c<6; c++){
-            console.log("RESULT BITE: ", result[i][c]);
-        }
-    }
     var table = document.getElementById("tableAusgeben");
     for (var i = 0; i <= 3; i++) {
         var row = document.createElement("tr");
